@@ -1,0 +1,258 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background-color: #00a6ed;
+    color: #fff;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Center the logo using flexbox */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #0076b8;
+}
+
+/* Hero Section Styles */
+.hero {
+    background-color: #cdeaf6;
+    color: #333;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+/* About Section Styles */
+.about {
+    padding: 50px 0;
+}
+
+.about h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Services Section Styles */
+.services {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.services h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.services ul {
+    list-style: none;
+}
+
+.services li {
+    font-size: 18px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Why Choose Us Section Styles */
+.why-choose-us {
+    padding: 50px 0;
+}
+
+.why-choose-us h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.why-choose-us ul {
+    list-style: none;
+}
+
+.why-choose-us li {
+    font-size: 18px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.why-choose-us li:before {
+    content: "\2022";
+    color: #00a6ed;
+    margin-right: 10px;
+}
+
+/* Contact Section Styles */
+.contact {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.contact .btn {
+    background-color: #00a6ed;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact .btn:hover {
+    background-color: #0093ca;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 14px;
+}
+/* Rest of the existing CSS styles... */
+
+/* User Registration Section Styles */
+.user-registration {
+    padding: 50px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.user-registration h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.user-registration p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.user-registration form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.user-registration label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.user-registration input,
+.user-registration select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.user-registration .btn {
+    background-color: #00a6ed;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.user-registration .btn:hover {
+    background-color: #0093ca;
+}
+
+.user-registration p.confirmation-message {
+    font-size: 18px;
+    color: #00a6ed;
+    margin-top: 20px;
+}
+

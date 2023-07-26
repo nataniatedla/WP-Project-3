@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBuyIt - Home Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="container">
+                <a href="#" class="logo">UBuyIt</a>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to UBuyIt</h1>
+            <p>Your one-stop destination for buying and selling properties</p>
+        </div>
+    </section>
+ <!-- User Registration Section -->
+    <section class="user-registration">
+        <div class="container">
+            <h2>Register now</h2>
+            <p>
+            </p>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="user-type">User Type:</label>
+                <select id="user-type" name="user-type">
+                    <option value="buyer">Buyer</option>
+                    <option value="seller">Seller</option>
+                    <option value="admin">Admin</option>
+                </select>
+
+                <button type="submit" class="btn">Register</button>
+            </form>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                const username = form.username.value;
+                const email = form.email.value;
+                const password = form.password.value;
+                const userType = form.user-type.value;
+
+                // Handle form submission and user registration (for backend implementation)
+                // Here, you can make an API call to your backend to save the user data.
+
+                // Display a confirmation message upon successful registration
+                const confirmationMessage = document.createElement("p");
+                confirmationMessage.textContent = "Registration successful! Welcome, " + username + "!";
+                confirmationMessage.style.color = "#00a6ed";
+                form.appendChild(confirmationMessage);
+
+                // Clear form fields after registration
+                form.reset();
+            });
+        });
+</script>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2>About UBuyIt</h2>
+            <p>
+                UBuyIt is a leading online platform that connects property buyers and sellers in a seamless and efficient way. 
+                We provide a user-friendly experience to help you find your dream home or sell your property effortlessly.
+            </p>
+            <p>
+                Our team of real estate experts is dedicated to delivering the best possible service, ensuring that you get the 
+                support and guidance you need throughout the process.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Property Listing for Sellers</li>
+                <li>Advanced Property Search for Buyers</li>
+                <li>Expert Guidance for First-Time Buyers</li>
+                <li>Real-Time Market Insights</li>
+                <li>Property Valuation and Appraisal</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2>Why Choose UBuyIt?</h2>
+            <ul>
+                <li>Wide Selection of Properties</li>
+                <li>Personalized Assistance from Expert Agents</li>
+                <li>Secure and Transparent Transactions</li>
+                <li>User-Friendly Platform</li>
+                <li>Excellent Customer Support</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have any questions or need assistance? Reach out to us!</p>
+            <a href="mailto:info@ubuyit.com" class="btn">Email Us</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 UBuyIt. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
