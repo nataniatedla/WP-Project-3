@@ -4,9 +4,6 @@ if (empty($_POST["name"])) {
     die("Name is required");
 }
 
-if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-    die("Valid email is required");
-}
 
 if ($_POST["password"] !== $_POST["password_confirmation"]) {
     die("Passwords must match");
