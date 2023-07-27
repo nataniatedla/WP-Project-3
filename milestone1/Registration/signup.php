@@ -25,7 +25,7 @@ if ($mysqli->connect_errno) {
     echo "Could not connect to the server\n";
     die("Connection error: " . $mysqli->connect_error);
 } else {
-    echo "Connection established\n";
+    echo "";
 }
 
 // Create user table
@@ -36,11 +36,7 @@ $sql = "CREATE TABLE IF NOT EXISTS user (
         password_hash VARCHAR(255) NOT NULL
 )";
 
-if ($mysqli->query($sql) === TRUE) {
-    echo "Users table created\n";
-} else {
-    echo "Error creating table: " . $mysqli->error . "\n";
-}
+
 
 // Insert user data into the user table
 $sql = "INSERT INTO user (name, email, password_hash) VALUES (?, ?, ?)";
@@ -53,7 +49,7 @@ if (!$stmt) {
 $stmt->bind_param("sss", $_POST["name"], $_POST["email"], $password_hash);
 
 if ($stmt->execute()) {
-    die("Signup success\n");
+   header("Location: signsuccess.html");
 } else {
     if ($mysqli->errno === 1062) {
         die("Email already taken\n");
