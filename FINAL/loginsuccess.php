@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Success</title>
+    <meta charset="UTF-8">
+</head>
+<body style="background-color: #f1f1f1; margin: 0px; font-family: Arial, sans-serif;">
+
+<header style="background-color: #333;
+            color: #fff;
+            padding: 10px;
+            margin: 0px;
+            /* Reduced header padding */
+            height: 60px;
+            margin-bottom: 50px;
+            ">  
+    <h1 style="margin-top: 15px;
+    font-size: 50px;
+    margin-left: 15px;">UBuyIt</h1>
+    </header>
+    
+    <h1 style="text-align: center;  color: #333;">Login Success</h1>
+    
+    <div style="max-width: 400px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 6px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+        <?php
+        if (isset($_GET["name"])) {
+            $user_name = $_GET["name"];
+            echo "<p>Welcome, $user_name!</p>";
+        } else {
+            echo "<p>Welcome, User!</p>";
+        }
+        ?>
+
+        <p><a href="homepage.html">Logout</a></p>
+    </div>
+    
+</body>
+</html>
