@@ -90,7 +90,7 @@
                 </div>
                 <div class="cover cover2">
                     <div class="content">
-                        <h3>$551,000</h3>
+                        <h3></h3>
                         <p></p>
                         <a href="houseinfo.html">Read More</a>
                     </div>
@@ -118,7 +118,13 @@
             <a href="wishlist.html" class="register-button">View Wishlist</a>
         </div>
 
-
+        <p>
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                    src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                    alt="Valid CSS!" />
+            </a>
+        </p>
         
 
     </body>
