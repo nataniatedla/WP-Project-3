@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="thankyou.css">
 
         <!-- javascript -->
-        <script type="text/javascript" src="thankyou.js" defer></script>
+        <script type="text/javascript" src="dashboard.js" defer></script>
     
         <title>UBuyIt - Buyer Dashboard</title>
     </head>
@@ -35,12 +35,24 @@
 
     <!-- SEARCH BAR -->
         <div class="search">
-            <input type="text" id="searchInput" placeholder="Search...">
+            <label for="searchInput">Search</label>
+            <input type="search" id="searchInput" oninput="liveSearch()" placeholder="Search...">
             <br>
             
+            <div class="query">
+                <h3>Title of Prope</h3>
+                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularized </p>
+            </div>
 
-            <script src="search.js"></script>
+            <div class="query">
+                <h3>What we do</h3>
+                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularized </p>
+            </div>
 
+            <div class="query">
+                <h3>Why work here</h3>
+                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularized</p>
+            </div>
         </div>
     
 
@@ -52,7 +64,7 @@
 
         <div class="container">
 
-        <!-- CARD 1 -->
+            <!-- CARD 1 -->
             <div class="card">
                 <div class="cover cover1">
                     <div class="content">
@@ -64,12 +76,12 @@
                         <h3> $453,000</h3>
                         <hr>
                         <p>2 </p>
-                        <a href="house1.html">Read More</a>
+                        <a href="houseinfo.html">Read More</a>
                     </div>
                 </div>
             </div>
 
-        <!-- CARD 2 -->
+            <!-- CARD 2 -->
             <div class="card">
                 <div class="cover cover1">
                     <div class="content">
@@ -80,12 +92,12 @@
                     <div class="content">
                         <h3>$551,000</h3>
                         <p></p>
-                        <a href="house2.html">Read More</a>
+                        <a href="houseinfo.html">Read More</a>
                     </div>
                 </div>
             </div>
 
-        <!-- CARD 3 -->
+            <!-- CARD 3 -->
             <div class="card">
                 <div class="cover cover1">
                     <div class="content">
@@ -95,7 +107,7 @@
                 <div class="cover cover2">
                     <div class="content">
                         <p></p>
-                        <a href="house3.html">Read More</a>
+                        <a href="houseinfo.html">Read More</a>
                     </div>
                 </div>
             </div>
@@ -103,7 +115,7 @@
 
     <!-- WISHLIST -->
         <div class="wishlist">
-            <button >View Wishlist</button>
+            <a href="wishlist.html" class="register-button">View Wishlist</a>
         </div>
 
 
