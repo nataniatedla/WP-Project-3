@@ -1,0 +1,364 @@
+<<<<<<< HEAD:FINAL/dashboard.css
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background: white/*rgb(141, 237, 134)*/;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+    padding: 10px 60px;
+    background: white;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 30px;
+}
+
+.uhm h2 {
+  margin: 10px;
+  text-indent: 20px;
+  font-weight: 600px;
+  font-size: 22pt;
+}
+
+/* CSS FOR SEARCH BAR */
+
+#searchInput {
+  background-image: url('searchicon.png');
+  background-size: 20px;
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+.search {
+  margin: 10px 10px 50px 10px;
+}
+
+.query {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem;
+}
+
+.is-hidden {
+  display: none; 
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 5px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+
+
+
+
+/* UBUYIT HEADER CSS */
+
+h1 {
+  margin-top: 15px;
+  font-size: 50px;
+  margin-left: 15px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px; /* Reduced header padding */
+	  height: 80px;
+}
+
+section {
+    padding: 50px;
+}
+
+.register-section {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 20px;
+}
+
+.register-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 18px;
+}
+        
+.login-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2196F3;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 18px;
+    margin-left: 10px;
+}
+        
+/* Add CSS for the Register button positioning */
+.register-button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+        
+/* Add CSS for the gray section */
+.gray-section {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+
+.wishlist {
+  margin: 15px;
+  padding: 5px;
+  border: 1px solid white;
+  display: flex;
+  text-decoration: none;
+  font-weight: 800;
+  color: white;
+  justify-content: center;
+=======
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background: white/*rgb(141, 237, 134)*/;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+    padding: 10px 60px;
+    background: white;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 30px;
+}
+
+.uhm h2 {
+  margin: 10px;
+  text-indent: 20px;
+  font-weight: 600;
+  font-size: 22pt;
+}
+
+/* CSS FOR SEARCH BAR */
+
+#searchInput {
+  background-image: url('searchicon.png');
+  background-size: 20px;
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+.search {
+  margin: 10px 10px 50px 10px;
+}
+
+.query {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem;
+}
+
+.is-hidden {
+  display: none; 
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 5px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+
+
+
+
+/* UBUYIT HEADER CSS */
+
+h1 {
+  margin-top: 15px;
+  font-size: 50px;
+  margin-left: 15px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px; /* Reduced header padding */
+	  height: 80px;
+}
+
+section {
+    padding: 50px;
+}
+
+.register-section {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 20px;
+}
+
+.register-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 18px;
+}
+        
+.login-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2196F3;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 18px;
+    margin-left: 10px;
+}
+        
+/* Add CSS for the Register button positioning */
+.register-button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+        
+/* Add CSS for the gray section */
+.gray-section {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+
+/*.wishlist {
+  margin: 15px;
+  padding: 5px;
+  border: 1px solid white;
+  display: flex;
+  text-decoration: none;
+  font-weight: 800;
+  color: white;
+  justify-content: center;
+}*/
+
+
+/* WISHLIST TABLE CSS */
+
+.wishlist table {
+    font-size: 16px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.wishlist th {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background-color: #04AA6D;
+    color: white;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+>>>>>>> 90f09834e38f1efc930c44986d63f8492e933a7b:milestone4/dashboard.css
+}

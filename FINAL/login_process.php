@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $email = $_POST["email"];
     $password = $_POST["password"];
+    $id = $_POST["id"];
 
     // Retrieve user data from the user table
     $sql = "SELECT * FROM user WHERE email = ?";
@@ -45,7 +46,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (password_verify($password, $user["password_hash"])) {
         session_start();
         $_SESSION["user_name"] = $user["name"]; // Store the user's name in a session variable
-        header("Location: loginsuccess.php?name=" . urlencode($user["name"]));
+        $_SESSION["user_id"] = $user["id"];
+
+        //header("Location: loginsuccess.php?name=" . urlencode($user["name"]));
+        //exit();
+
+        $redirect_url = "loginsuccess.php?name=" . urlencode($user["name"]) . "&user_id=" . urlencode($user["id"]);
+        header("Location: " . $redirect_url);
         exit();
     } else {
         die("Invalid email or password");

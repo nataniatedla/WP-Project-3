@@ -3,9 +3,37 @@
 <head>
     <title>Login Success</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="thankyou.css">
+    <!-- script -->
+        <script type="text/javascript" src="dashboard.js" defer></script>
 </head>
-<body style="background-color: #f1f1f1; margin: 0px; font-family: Arial, sans-serif;">
+<body onload="openMessage()" style="background-color: #f1f1f1; margin: 0px; font-family: Arial, sans-serif;">
 
+    <!-- THANK YOU MESSAGE -->
+    <div class="messageContainer">
+                <div class="thankyou" id="thankyou">
+                <img class="smile" src="smile.png">
+    <?php
+        if (isset($_GET["name"])) {
+            $user_name = $_GET["name"];
+
+            echo "<h2>Thank you for choosing us, $user_name!</h2>
+                <p>You have successfully logged into your account. Happy browsing!</p>
+                ";
+        } else {
+            echo "<h2>Thank you for choosing us!</h2>
+                <p>You have successfully logged into your account. Happy browsing!</p>
+                ";
+        }
+
+        if (isset($_GET["id"])) {
+            $user_id = $_GET["id"];
+            
+        }
+        ?><form action="dashboardNew.php" method="post"><button type="submit" name="redirectButton">Continue to Dashboard</button></form>
+            </div>
+        </div>
+        
 <header style="background-color: #333;
             color: #fff;
             padding: 10px;
@@ -18,21 +46,6 @@
     font-size: 50px;
     margin-left: 15px;">UBuyIt</h1>
     </header>
-    
-    <h1 style="text-align: center;  color: #333;">Login Success</h1>
-    
-    <div style="max-width: 400px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 6px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
-        <?php
-        if (isset($_GET["name"])) {
-            $user_name = $_GET["name"];
-            echo "<p>Welcome, $user_name!</p>";
-        } else {
-            echo "<p>Welcome, User!</p>";
-        }
-        ?>
-
-        <p><a href="homepage.html">Logout</a></p>
-    </div>
     
 </body>
 </html>
