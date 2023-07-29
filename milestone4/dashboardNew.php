@@ -1,54 +1,60 @@
 <?php
-include('props.php');
+// Replace the following variables with your actual database credentials
+$host = 'localhost';
+$user = 'kajibade1';
+$password = 'kajibade1';
+$database = 'kajibade1';
 
-// Replace database credentials with your own
-$host = "localhost";
-$dbname = "kajibade1";
-$username = "kajibade1";
-$password = "kajibade1";
 
 try {
-    // Connect to the database
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // Create a connection to the database
+    $connection = new PDO("mysql:host=$host;dbname=$database", $user, $password);
 
-    // Fetch property details for each property ID and create three cards
-    for ($i = 0; $i < 3; $i++) {
-        $property_id = $property_ids[$i];
+    // Set the PDO error mode to exception
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $conn->prepare("SELECT property_id, price, beds, bath, sqft, img1 FROM properties WHERE property_id = :property_id");
-        $stmt->bindParam(':property_id', $property_id, PDO::PARAM_INT);
-        $stmt->execute();
-        $property = $stmt->fetch(PDO::FETCH_ASSOC);
-?>
+    // Define the SQL query to retrieve all property_id values and their data
+    $query = "SELECT property_id, price, address, beds, bath, sqft, monthly_payment, home, cooling, heating, laundry, parking, electricity, appliances, cable FROM properties";
 
-        <!-- CARD <?php echo $i + 1; ?> -->
-        <div class="card">
-            <div class="cover cover1">
-                <div class="content">
-                    <img src="<?php echo $property['img1']; ?>">
-                </div>
-            </div>
-            <div class="cover cover2">
-                <div class="content">
-                    <h3> <?php echo $property['price']; ?> </h3>
-                    <hr>
-                    <p> <?php echo $property['beds']; ?> beds | <?php echo $property['bath']; ?> baths | <?php echo $property['sqft']; ?> </p>
-                    <p> </p>
-                    <a href="houseinfo.php?id=<?php echo $property_id; ?>">Read More</a>
-                </div>
-            </div>
-        </div>
+    // Execute the query and fetch all rows
+    $result = $connection->query($query);
+    $properties = $result->fetchAll(PDO::FETCH_ASSOC);
 
-<?php
-    }
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
-    exit();
 }
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property Listings</title>
+	 <link rel="stylesheet" href="dashboard.css">
 
+</head>
+<body>
 
+<!-- Loop through all properties and create cards for each one -->
+<?php foreach ($properties as $property) : ?>
+    <div class="card">
+        <div class="cover cover1">
+            <div class="content">
+                <img src="<?php echo $property['img1']; ?>">
+            </div>
+        </div>
+        <div class="cover cover2">
+            <div class="content">
+                <h3><?php echo $property['price']; ?></h3>
+                <hr>
+                <p><?php echo $property['beds']; ?> beds | <?php echo $property['bath']; ?> baths | <?php echo $property['sqft']; ?></p>
+                <!-- Add other property information as needed -->
+                <p> </p>
+                <a href="houseinfo.php?id=<?php echo $property['property_id']; ?>">Read More</a>
+            </div>
+        </div>
+    </div>
+    <br>
+<?php endforeach; ?>
 
-
+</body>
+</html>
