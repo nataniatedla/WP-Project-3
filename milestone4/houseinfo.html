@@ -1,25 +1,113 @@
+<?php
+// Check if property ID is provided in the URL
+//if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $property_id = '1';
+
+    // Replace database credentials with your own
+    $host = "localhost";
+    $dbname = "kajibade1";
+    $username = "kajibade1";
+    $password = "kajibade1";
+
+    try {
+        // Connect to the database
+        $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // Fetch property details based on the provided property ID
+        $stmt = $conn->prepare("SELECT * FROM properties WHERE property_id = :property_id");
+        $stmt->bindParam(':property_id', $property_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $property = $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+        exit();
+    }
+//} else {
+   // echo "Invalid property ID provided.";
+   // exit();
+//}
+?>
+
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-    <!-- css stylesheets -->
-        <link rel="stylesheet" href="dashboard.css">
-
-        <title>UBuyIt - House Listing 1</title>
-    </head>
-    <body>
-        <!-- UBUYIT HEADER -->
-        <header>
-                <h1>UBuyIt</h1>
-            
-                <div class="register-button-container">
-                    <a href="signupform.html" class="register-button">Register</a>
-                    <a href="login.html" class="login-button">Login</a>
+<head>
+    <title>Property Details</title>
+    <style>
+        .property-image {
+            max-width: 100%;
+            max-height: 300px;
+        }
+        .navigation-arrows {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .arrow {
+            cursor: pointer;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <?php if ($property): ?>
+            <div>
+                <img class="property-image" src="property_images/<?php echo $property['property_image1']; ?>" alt="Property Image">
+                <div class="navigation-arrows">
+                    <span class="arrow" onclick="showPreviousImage()">&#8249;</span>
+                    <span class="arrow" onclick="showNextImage()">&#8250;</span>
                 </div>
-            </header>
+            </div>
+            <div>
+                <h2><?php echo $property['price']; ?></h2>
+                <p><?php echo $property['beds']; ?> beds | <?php echo $property['bath']; ?> baths | <?php echo $property['sqft']; ?> sqft</p>
+                <p><?php echo $property['address']; ?></p>
+                <p>Monthly Payment: <?php echo $property['monthly_payment']; ?></p>
+            </div>
+            <div class="home-description">
+                <h3>Home Description:</h3>
+                <p><?php echo $property['home']; ?></p>
+            </div>
+            <div class="features">
+                <h3>Features:</h3>
+                <p>Cooling: <?php echo $property['cooling']; ?></p>
+                <p>Heating: <?php echo $property['heating']; ?></p>
+                <p>Laundry: <?php echo $property['laundry']; ?></p>
+                <p>Parking: <?php echo $property['parking']; ?></p>
+                <p>Electricity: <?php echo $property['electricity']; ?></p>
+                <p>Appliances: <?php echo $property['appliances']; ?></p>
+                <p>Cable: <?php echo $property['cable']; ?></p>
+            </div>
+        <?php else: ?>
+            <p>Property not found.</p>
+        <?php endif; ?>
+    </div>
 
-            <?php
-                
-            ?>
 
-    </body>
+    <!-- JavaScript to handle image navigation -->
+    <script>
+        const images = [
+            '<?php echo $property['property_image1']; ?>',
+            '<?php echo $property['property_image2']; ?>',
+            '<?php echo $property['property_image3']; ?>'
+        ];
+        let currentImageIndex = 0;
+
+        function showPreviousImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updatePropertyImage();
+        }
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updatePropertyImage();
+        }
+
+        function updatePropertyImage() {
+            const propertyImage = document.querySelector('.property-image');
+            propertyImage.src = 'property_images/' + images[currentImageIndex];
+        }
+    </script>
+</body>
 </html>
