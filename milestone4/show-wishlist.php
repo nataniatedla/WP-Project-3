@@ -1,6 +1,8 @@
 <?php
-    include('loginsuccess.php');
+    session_start();
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,8 +18,7 @@
                 <h1>UBuyIt</h1>
             
                 <div class="register-button-container">
-                    <a href="signupform.html" class="register-button">Register</a>
-                    <a href="login.html" class="login-button">Login</a>
+                    
                 </div>
             </header>
 
@@ -37,14 +38,13 @@
                                             <th>Price</th>
 
                                             <th>Date and Time</th>
-                                            <th>Delete Item?</th>
                                         </tr>
                                     </thead>
                                 <tbody>
                                 <?php
                                    $u_id = $_SESSION['user'];
 
-                                   $sql = "SELECT * FROM wishlist JOIN props.property_id = wishlist.pid";
+                                   $sql = "SELECT * FROM wishlist JOIN properties.property_id = wishlist.pid";
                                    //$sql = "SELECT * FROM wishlist JOIN props on props.home uid = wishlist.pid";
                                    $result = mysqli_query($conn, $sqli);
 
@@ -54,16 +54,11 @@
 
                                 <tr>
                                     <td>
-                                        <?php echo $row["property_id"] ?>
+                                        <a href="houseinfo.php?id=<?php echo $row["property_id"] ?>">	<?php echo $row["address"] ?></a>
                                     </td>
                                     
                                     <td>
                                         <?php echo $row["price"] ?>
-                                    </td>
-
-                                    <td>
-                                        <a href="delete-wishlist.php?pid=<?php echo $row["product_id"] ?>&cid=<?php echo $_SESSION['customerid'] ?>">Delete</a> 
-                                        
                                     </td>
                                 </tr> 
                             <?php

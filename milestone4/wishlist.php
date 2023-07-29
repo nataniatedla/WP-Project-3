@@ -1,14 +1,14 @@
 <?php
 
     session_start();
-    include("database.php");
+    // include("database.php");
 
-    if (!isset($_SESSION['user'])) {
-        header('location:buyerdashboard.php');
+    if (!isset($_SESSION['user_name'])) {
+        header('location:dashboardNew.php');
 
     } else {
         $u_id = $_SESSION['user_name'];
-        $p_id = $_GET['property_id'];
+        $p_id = $_GET['id']; 
 
         
         $sql_Check = "SELECT * FROM wishlist WHERE pid = $p_id AND uid = $u_id";
@@ -16,7 +16,7 @@
 
         if (mysqli_num_rows($result_check) == 1 ) {
             echo "You've already added this property to your wishlist.";
-            header('location:wishlist.php');
+            header('location:show-wishlist.php');
         } else {
 
         }
@@ -26,7 +26,7 @@
 
         if (mysqli_query($conn, $insertWishlist)) {
             echo "inserted";
-            header('location:wishlist.php');
+            header('location:show-wishlist.php');
         }
     }
 

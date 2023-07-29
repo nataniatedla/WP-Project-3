@@ -1,32 +1,34 @@
 <?php
-// Check if property ID is provided in the URL
-if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $property_id = $_GET['id'];
+    session_start();
 
-    // Replace database credentials with your own
-    $host = "localhost";
-    $dbname = "kajibade1";
-    $username = "kajibade1";
-    $password = "kajibade1";
+    // Check if property ID is provided in the URL
+    if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+        $property_id = $_GET['id'];
 
-    try {
-        // Connect to the database
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // Replace database credentials with your own
+        $host = "localhost";
+        $dbname = "kajibade1";
+        $username = "kajibade1";
+        $password = "kajibade1";
 
-        // Fetch property details based on the provided property ID
-        $stmt = $conn->prepare("SELECT * FROM properties WHERE property_id = :property_id");
-        $stmt->bindParam(':property_id', $property_id, PDO::PARAM_INT);
-        $stmt->execute();
-        $property = $stmt->fetch(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
-        exit();
+        try {
+            // Connect to the database
+            $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            // Fetch property details based on the provided property ID
+            $stmt = $conn->prepare("SELECT * FROM properties WHERE property_id = :property_id");
+            $stmt->bindParam(':property_id', $property_id, PDO::PARAM_INT);
+            $stmt->execute();
+            $property = $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+            exit();
+        }
+    } else {
+    echo "Invalid property ID provided.";
+    exit();
     }
-} else {
-   echo "Invalid property ID provided.";
-   exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +47,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
        <!-- Assuming you have the property_id available in a variable named property_id -->
       
         <div class="wishlist-button-container">
-           <button class="wishlist-button" onclick="addToWishlist('<?php echo $property_id; ?>')">Wishlist +</button>
+           <a href="wishlist.php?id=<?php echo $_GET['id']?>" class="wishlist-button">Wishlist +</a>
         </div>
 
 	           

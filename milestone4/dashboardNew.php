@@ -1,28 +1,31 @@
 <?php
-// Replace the following variables with your actual database credentials
-$host = 'localhost';
-$user = 'kajibade1';
-$password = 'kajibade1';
-$database = 'kajibade1';
+
+    session_start();
+
+    // Replace the following variables with your actual database credentials
+    $host = 'localhost';
+    $user = 'kajibade1';
+    $password = 'kajibade1';
+    $database = 'kajibade1';
 
 
-try {
-    // Create a connection to the database
-    $connection = new PDO("mysql:host=$host;dbname=$database", $user, $password);
+    try {
+        // Create a connection to the database
+        $connection = new PDO("mysql:host=$host;dbname=$database", $user, $password);
 
-    // Set the PDO error mode to exception
-    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // Set the PDO error mode to exception
+        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Define the SQL query to retrieve all property_id values and their data
-    $query = "SELECT property_id, price, address, beds, bath, sqft, monthly_payment, home, cooling, heating, laundry, parking, electricity, appliances, cable FROM properties";
+        // Define the SQL query to retrieve all property_id values and their data
+        $query = "SELECT * FROM properties";
 
-    // Execute the query and fetch all rows
-    $result = $connection->query($query);
-    $properties = $result->fetchAll(PDO::FETCH_ASSOC);
+        // Execute the query and fetch all rows
+        $result = $connection->query($query);
+        $properties = $result->fetchAll(PDO::FETCH_ASSOC);
 
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
+    } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -65,28 +68,22 @@ try {
 
     
     <!-- SEARCH BAR -->
-
+        
+        
         <div class="search">
             <label for="searchInput">Search</label>
             <input type="search" id="searchInput" oninput="liveSearch()" placeholder="Search...">
             <br>
             
+            <?php foreach ($properties as $property) : ?>
             <div class="query">
                 <h3> <?php echo $property['price']; ?> </h3>
                 <p><?php echo $property['beds']; ?> beds | <?php echo $property['bath']; ?> baths | <?php echo $property['sqft']; ?> </p>
             </div>
-
-            <div class="query">
-                <h3> <?php echo $property['price']; ?> </h3>
-                <p> <?php echo $property['beds']; ?> beds | <?php echo $property['bath']; ?> baths | <?php echo $property['sqft']; ?> </p>
-            </div>
-
-            <div class="query">
-                <h3> <?php echo $property['price']; ?> </h3>
-                <p> <?php echo $property['beds']; ?> beds | <?php echo $property['bath']; ?> baths | <?php echo $property['sqft']; ?></p>
-            </div>
+            <?php endforeach; ?>
+            
         </div>
-    
+        
 
 
     <!-- DASHBOARD CARDS -->
