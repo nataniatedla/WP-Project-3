@@ -33,7 +33,7 @@ body {
 .uhm h2 {
   margin: 10px;
   text-indent: 20px;
-  font-weight: 600px;
+  font-weight: 600;
   font-size: 22pt;
 }
 
@@ -154,7 +154,7 @@ section {
     text-align: center;
 }
 
-.wishlist {
+/*.wishlist {
   margin: 15px;
   padding: 5px;
   border: 1px solid white;
@@ -163,4 +163,34 @@ section {
   font-weight: 800;
   color: white;
   justify-content: center;
+}*/
+
+
+/* WISHLIST TABLE CSS */
+
+.wishlist table {
+    font-size: 16px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.wishlist th {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background-color: #04AA6D;
+    color: white;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
 }
